@@ -1,0 +1,35 @@
+package org.yapl.main
+
+// Comment
+
+// Continuous \
+	comment
+
+// Not a continuous comment... \\
+class Main
+	/*
+	Hello, i'm a comment
+	MULTILINE!
+	*/
+	fun main array of string args
+		show args
+		// Comment
+
+	fun show array of string args returns int i
+		for arg in args
+			print arg
+			++i
+
+class Main {
+	fun main(string[] args) {
+		show(args)
+	}
+
+	fun show(string[] args) returns int i {
+		for (arg in args) {
+			print(arg)
+			++i
+		}
+	}
+}
+
