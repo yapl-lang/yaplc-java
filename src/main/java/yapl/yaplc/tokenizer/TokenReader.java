@@ -163,7 +163,18 @@ public final class TokenReader {
 		}
 
 		fail();
-		return null;
+		return "";
+	}
+
+	public boolean is(String... strings) {
+		for (String prefix : strings) {
+			if (string.startsWith(prefix, offset)) {
+				offset += prefix.length();
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 

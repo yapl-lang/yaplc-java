@@ -16,6 +16,7 @@
           </value>
         </option>
         <codeStyleSettings language="JAVA">
+          <option name="INDENT_CASE_FROM_SWITCH" value="false" />
           <indentOptions>
             <option name="USE_TAB_CHARACTER" value="true" />
             <option name="SMART_TABS" value="true" />

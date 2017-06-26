@@ -39,6 +39,8 @@ public final class TokenFactory {
 
 		registerToken(OperatorToken.class);
 
+		registerToken(StringLiteralToken.class);
+
 		registerToken(BraceOpenToken.class);
 		registerToken(BraceCloseToken.class);
 		registerToken(BracketOpenToken.class);

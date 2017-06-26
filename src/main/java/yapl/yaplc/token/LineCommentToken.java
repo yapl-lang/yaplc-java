@@ -39,33 +39,33 @@ public final class LineCommentToken extends Token {
 		type = reader.skip("//", "#");
 
 		reader.middleware(new Middleware() {
-				private final StringBuilder commentBuilder = new StringBuilder();
+			private final StringBuilder commentBuilder = new StringBuilder();
 
-				@Override
-				public boolean process(TokenReader reader, Collection<Token> tokens) {
-					commentBuilder.append(reader.get());
+			@Override
+			public boolean process(TokenReader reader, Collection<Token> tokens) {
+				commentBuilder.append(reader.get());
 
-					int i = commentBuilder.length(), count = 0;
-					while (i > 0 && commentBuilder.charAt(--i) == '\\') {
-						++count;
-					}
-
-					if (count % 2 == 0) {
-						commentBuilder.setLength(commentBuilder.length() - count / 2);
-						return false;
-					}
-
-					commentBuilder.setLength(commentBuilder.length() - (count + 1) / 2);
-					commentBuilder.append("\n");
-					return true;
+				int i = commentBuilder.length(), count = 0;
+				while (i > 0 && commentBuilder.charAt(--i) == '\\') {
+					++count;
 				}
 
-				@Override
-				public void end(Collection<Token> tokens) {
-					comment = commentBuilder.toString();
-					commentBuilder.setLength(0);
+				if (count % 2 == 0) {
+					commentBuilder.setLength(commentBuilder.length() - count / 2);
+					return false;
 				}
-			});
+
+				commentBuilder.setLength(commentBuilder.length() - (count + 1) / 2);
+				commentBuilder.append("\n");
+				return true;
+			}
+
+			@Override
+			public void end(Collection<Token> tokens) {
+				comment = commentBuilder.toString();
+				commentBuilder.setLength(0);
+			}
+		});
 	}
 
 	@Override
