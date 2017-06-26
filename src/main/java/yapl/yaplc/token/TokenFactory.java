@@ -30,11 +30,21 @@ public final class TokenFactory {
 
 	static {
 		registerToken(WordToken.class);
+
 		registerToken(IndentToken.class);
 		registerToken(WhitespaceToken.class);
+
 		registerToken(LineCommentToken.class);
 		registerToken(MultiLineCommentToken.class);
+
 		registerToken(OperatorToken.class);
+
+		registerToken(BraceOpenToken.class);
+		registerToken(BraceCloseToken.class);
+		registerToken(BracketOpenToken.class);
+		registerToken(BracketCloseToken.class);
+		registerToken(ParenthesesOpenToken.class);
+		registerToken(ParenthesesCloseToken.class);
 
 		readableTokens = Collections.unmodifiableCollection(readableTokens);
 	}
