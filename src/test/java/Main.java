@@ -17,6 +17,14 @@ public final class Main {
 		Collection<Token> tokens = tokenizer.tokenize(reader);
 
 		for (Token token : tokens) {
+			System.out.print(token.getStartLine() + 1);
+			System.out.print(":");
+			System.out.print(token.getStartColumn() + 1);
+			System.out.print("-");
+			System.out.print(token.getEndLine() + 1);
+			System.out.print(":");
+			System.out.print(token.getEndColumn() + 1);
+			System.out.print(" - ");
 			System.out.println(token);
 		}
 	}

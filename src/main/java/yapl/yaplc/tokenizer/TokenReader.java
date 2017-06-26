@@ -47,6 +47,15 @@ public final class TokenReader {
 	}
 
 
+	public int line() {
+		return number;
+	}
+
+	public int column() {
+		return offset;
+	}
+
+
 	public void save() {
 		saves.push(offset);
 	}
@@ -195,7 +204,9 @@ public final class TokenReader {
 	public boolean read(Token token) {
 		save();
 		try {
+			token.start(number, offset);
 			token.read(this);
+			token.end(number, offset);
 			skipRestore();
 		} catch (TokenReadFailedException | IndexOutOfBoundsException e) {
 			restore();
